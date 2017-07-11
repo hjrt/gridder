@@ -21,11 +21,11 @@
 
     /* KEYPRESS LEFT & RIGHT ARROW */
     /* This will work only if a current gridder is opened. */
-    if ($(".currentGridder").length) {
-        $(document).keydown(function(e) {
-            var keycode = e.keyCode;
-            var $current_gridder = $(".currentGridder");
-            var $current_target = $current_gridder.find(".gridder-show");
+    $(document).keydown(function(e) {
+        var keycode = e.keyCode;
+        var $current_gridder = $(".currentGridder");
+        var $current_target = $current_gridder.find(".gridder-show");
+        if($current_gridder.length){
             if ( keycode === 37 ) {
                 $current_target.prev().prev().trigger("click");
                 e.preventDefault();
@@ -34,8 +34,8 @@
                 $current_target.next().trigger("click");
                 e.preventDefault();
             }
-        });
-    }
+        }
+    });
 
     $.fn.gridderExpander = function(options) {
 
